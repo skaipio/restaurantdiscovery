@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Restaurant Discovery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h2>Welcome to Restaurant Discovery</h2>
+        <h3>Restaurants:</h3>
+        <h:dataTable var="restaurant" value="#{restaurantController.restaurants}">
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{restaurant.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Home page</f:facet>
+                <a target="_blank" href="#{restaurant.homepage}">#{restaurantController.getRestaurantCleanLink(restaurant)}</a>
+            </h:column>
+            <h:column>
+                <f:facet name="header">City</f:facet>
+                #{restaurant.address.city}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Area</f:facet>
+                #{restaurant.address.postcode}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Street</f:facet>
+                #{restaurant.address.street}
+            </h:column>
+        </h:dataTable>
+    </body>
+</html>

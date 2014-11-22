@@ -1,0 +1,3 @@
+target/
+restdiscovery_derby_create.sql
+*.log
