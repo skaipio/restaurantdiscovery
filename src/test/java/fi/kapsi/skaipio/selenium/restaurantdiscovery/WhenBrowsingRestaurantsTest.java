@@ -10,14 +10,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-/**
- *
- * @author skaipio
- */
-public class WhenBrowsingRestaurants {
+public class WhenBrowsingRestaurantsTest {
     private final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
     private WebDriver driver;
     
