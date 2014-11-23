@@ -17,7 +17,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * @author skaipio
  */
 public class IntegrationTestUsingSelenium {
-    protected static final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
+    protected static final String baseUrl = "http://localhost:8080/RestaurantDiscovery/";
     protected static WebDriver driver;
     
     @BeforeClass

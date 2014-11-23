@@ -7,9 +7,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
         
         
-public class ITWhenNavigatingToAdminPages extends IntegrationTestUsingSelenium{
+public class ITWhenOnMainPageTest extends IntegrationTestUsingSelenium{
     @Test
-    public void mainPageShouldHaveLinkToAdminPage(){
+    public void thereShouldBeALinkToAdminPage(){
         driver.get(baseUrl);
         WebElement link = null;
         try{
