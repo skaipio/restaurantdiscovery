@@ -1,7 +1,9 @@
 package fi.kapsi.skaipio.selenium.restaurantdiscovery;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -15,16 +17,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * @author skaipio
  */
 public class IntegrationTestUsingSelenium {
-    protected final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
-    protected WebDriver driver;
+    protected static final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
+    protected static WebDriver driver;
     
-    @Before
-    public void openBrowser(){
+    @BeforeClass
+    public static void openBrowser(){
         driver = new FirefoxDriver();
     }
     
-    @After
-    public void closeBrowser(){
+    @AfterClass
+    public static void closeBrowser(){
         driver.close();
     }
 }
