@@ -115,7 +115,7 @@
                 <configuration>
                     <skipTests>${skip.unit.tests}</skipTests>
                     <excludes>
-                        <exclude>**/selenium/**.java</exclude>
+                        <exclude>**/IT*.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
