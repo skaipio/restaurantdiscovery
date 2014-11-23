@@ -23,6 +23,6 @@ public class ITWhenNavigatingToAdminPages extends IntegrationTestUsingSelenium{
         driver.get(baseUrl);
         WebElement link = driver.findElement(By.id("linkAdminPage"));
         link.click();
-        assertEquals("http://localhost:8080/RestaurantDiscovery/admin", driver.getCurrentUrl());
+        assertEquals("http://localhost:8080/RestaurantDiscovery/admin/", driver.getCurrentUrl());
     }
 }
