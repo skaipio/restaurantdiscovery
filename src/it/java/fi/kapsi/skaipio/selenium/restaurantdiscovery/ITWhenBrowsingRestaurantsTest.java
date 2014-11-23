@@ -16,19 +16,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 // classes are prefixed with IT. Run from console with
 // mvn verify -P integration-test
 // For now we have to manually start the glassfish server for testing this.
-public class ITWhenBrowsingRestaurantsTest {
-    private final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
-    private WebDriver driver;
+public class ITWhenBrowsingRestaurantsTest extends IntegrationTestUsingSelenium{
     
+    /*
     @Before
     public void openBrowser(){
-        driver = new FirefoxDriver();
+        super.openBrowser();
     }
     
     @After
-    public void closerBrowser(){
-        driver.close();
-    }
+    public void closeBrowser(){
+        super.closeBrowser();
+    }*/
     
     @Test
     public void restaurantsAreListedOnMainPage(){
