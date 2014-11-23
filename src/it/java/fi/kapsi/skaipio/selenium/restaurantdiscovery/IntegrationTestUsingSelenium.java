@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +19,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class IntegrationTestUsingSelenium {
     protected static final String baseUrl = "http://localhost:8080/RestaurantDiscovery/";
+    protected static final String adminPage = baseUrl + "admin/";
+    protected static final String loginPage = baseUrl + "login/";
     protected static WebDriver driver;
     
     @BeforeClass
