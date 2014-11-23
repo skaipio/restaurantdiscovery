@@ -10,15 +10,19 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class WhenBrowsingRestaurantsTest {
+// The Failsafe plugin requires that integration-test
+// classes are prefixed with IT. Run from console with
+// mvn verify -P integration-test
+// For now we have to manually start the glassfish server for testing this.
+public class ITWhenBrowsingRestaurantsTest {
     private final String baseUrl = "http://localhost:8080/RestaurantDiscovery";
     private WebDriver driver;
     
     @Before
     public void openBrowser(){
-        driver = new HtmlUnitDriver();
+        driver = new FirefoxDriver();
     }
     
     @After
