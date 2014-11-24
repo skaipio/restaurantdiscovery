@@ -43,10 +43,6 @@ public class LoginController {
     public String getErrorMessage() {
         return errorMessage;
     }
-
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
     
     public String login(){
         if (adminUsername.equals(username) &&
