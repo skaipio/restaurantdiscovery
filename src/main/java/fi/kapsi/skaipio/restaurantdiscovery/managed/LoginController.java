@@ -57,4 +57,14 @@ public class LoginController implements Serializable{
             return "";
         }
     }
+    
+    public String logout(){
+        if (isLoggedIn()){
+            this.username = "";
+            this.password = "";
+            return "/index.xhtml?faces-redirect=true";
+        }
+        
+        return "/index.xhtml?faces-redirect=true";
+    }
 }

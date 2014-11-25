@@ -13,7 +13,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="resources/style.css" type="text/css" media="screen"/>
     </head>
-    <header style="display: ${loginController.loggedIn ? 'block' : 'none'}"><nav><a id="linkAdminPage" href="admin/">Admin Page</a></nav></header>
+    <header style="display: ${loginController.loggedIn ? 'block' : 'none'}">
+        <h:panelGrid columns="2">
+            <a id="linkAdminPage" href="admin/">Administration</a> |
+            <h:form id="logoutForm"><h:commandLink action="#{loginController.logout()}" id="linkLogout" value="Log out"/></h:form>
+        </h:panelGrid>
+    </header>
     <body>
         <h2>Welcome to Restaurant Discovery</h2>
         <h3>Restaurants:</h3>
@@ -38,6 +43,10 @@ and open the template in the editor.
             <h:column>
                 <f:facet name="header">Street</f:facet>
                 #{restaurant.address.street}
+            </h:column>
+            <h:column rendered="${loginController.loggedIn}">
+                <f:facet name="header"/>
+                <h:button class="editButton" value="Edit" />
             </h:column>
         </h:dataTable>
     </body>
