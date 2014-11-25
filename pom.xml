@@ -29,6 +29,14 @@
                 <skip.unit.tests>true</skip.unit.tests>
             </properties>
         </profile>
+        <profile>
+            <id>tests-on-travis</id>
+            <properties>
+                <build.profile.id>tests-on-travis</build.profile.id>
+                <skip.integration.tests>false</skip.integration.tests>
+                <skip.unit.tests>false</skip.unit.tests>
+            </properties>
+        </profile>
     </profiles>
     
     <dependencies>
