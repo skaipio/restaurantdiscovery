@@ -5,20 +5,21 @@
  */
 package fi.kapsi.skaipio.restaurantdiscovery.managed;
 
+import java.io.Serializable;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author skaipio
  */
 @Named(value = "loginController")
-@RequestScoped
-public class LoginController {
+@SessionScoped
+public class LoginController implements Serializable{
     private final String adminUsername = "admin";
     private final String adminPassword = "password";
-    private String username;
-    private String password;
+    private String username = "";
+    private String password = "";
     private String errorMessage;
 
     public LoginController() {
@@ -44,9 +45,12 @@ public class LoginController {
         return errorMessage;
     }
     
+    public boolean isLoggedIn(){
+        return username.equals(adminUsername) && password.equals(adminPassword);
+    }
+    
     public String login(){
-        if (adminUsername.equals(username) &&
-                adminPassword.equals(password)){
+       if (isLoggedIn()){
             return "/admin/index.xhtml?faces-redirect=true";
         }else{
             errorMessage = "Wrong user name or password.";
