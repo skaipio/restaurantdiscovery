@@ -1,28 +1,50 @@
 package fi.kapsi.skaipio.selenium.restaurantdiscovery;
 
+import org.junit.After;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
         
         
 public class ITWhenOnMainPageTest extends IntegrationTestUsingSelenium{
+    
+    @Before
+    public void open(){
+        driver = new FirefoxDriver();
+    }
+    
+    @After
+    public void close(){
+        driver.close();
+    }
+    
     @Test
-    public void thereShouldBeALinkToAdminPage(){
+    public void headerShouldBeHiddenWhenNotSignedIn() throws NoSuchElementException{
         driver.get(baseUrl);
-        WebElement link = null;
-        try{
-            link = driver.findElement(By.id("linkAdminPage"));
-        }catch(NoSuchElementException e){}
-        assertNotNull(link);
+        WebElement header = driver.findElement(By.tagName("header"));
+        assertFalse(header.isDisplayed());
+    }
+    
+    @Test
+    public void headerShouldNotBeHiddenWhenSignedIn() throws NoSuchElementException{
+        this.login();
+        driver.get(baseUrl);
+        WebElement header = driver.findElement(By.tagName("header"));
+        assertTrue(header.isDisplayed());
     }
     
     @Test
     public void adminPageLinkShouldOpenAdminPage() throws NoSuchElementException{
+        this.login();
         driver.get(baseUrl);
         WebElement link = driver.findElement(By.id("linkAdminPage"));
         link.click();
         assertEquals("http://localhost:8080/RestaurantDiscovery/admin/", driver.getCurrentUrl());
     }
+    
+    
 }

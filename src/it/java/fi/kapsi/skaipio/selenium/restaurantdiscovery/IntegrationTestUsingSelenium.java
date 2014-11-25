@@ -4,7 +4,9 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,13 +25,15 @@ public class IntegrationTestUsingSelenium {
     protected static final String loginPage = baseUrl + "login/";
     protected static WebDriver driver;
     
-    @BeforeClass
-    public static void openBrowser(){
-        driver = new FirefoxDriver();
-    }
     
-    @AfterClass
-    public static void closeBrowser(){
-        driver.close();
+    
+    protected void login(){
+        driver.get(loginPage);
+        WebElement username = driver.findElement(By.id("loginForm:username"));
+        WebElement password = driver.findElement(By.id("loginForm:password"));
+        WebElement loginButton = driver.findElement(By.id("loginForm:loginBtn"));
+        username.sendKeys("admin");
+        password.sendKeys("password");
+        loginButton.click();
     }
 }

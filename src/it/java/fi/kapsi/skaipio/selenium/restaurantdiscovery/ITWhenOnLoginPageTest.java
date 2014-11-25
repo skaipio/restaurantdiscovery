@@ -1,17 +1,27 @@
 package fi.kapsi.skaipio.selenium.restaurantdiscovery;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import static fi.kapsi.skaipio.selenium.restaurantdiscovery.IntegrationTestUsingSelenium.driver;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ITWhenOnLoginPageTest extends IntegrationTestUsingSelenium{
     
+    
+    @Before
+    public void open(){
+        driver = new FirefoxDriver();
+    }
+    
+    @After
+    public void close(){
+        driver.close();
+    }
     
     @Test
     public void thereShouldExistALoginForm(){
