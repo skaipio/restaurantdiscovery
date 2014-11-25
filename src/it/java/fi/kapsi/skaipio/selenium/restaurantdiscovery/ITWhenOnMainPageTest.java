@@ -47,6 +47,7 @@ public class ITWhenOnMainPageTest extends IntegrationTestUsingSelenium{
     
     @Test
     public void restaurantDataRowsShouldHaveEditButtonsWhenSignedIn() throws NoSuchElementException{
+        this.login();
         driver.get(baseUrl);
         List<WebElement> editButtons = driver.findElements(By.className("editButton"));
         assertEquals(2, editButtons.size());
@@ -61,5 +62,13 @@ public class ITWhenOnMainPageTest extends IntegrationTestUsingSelenium{
         assertEquals("http://localhost:8080/RestaurantDiscovery/admin/", driver.getCurrentUrl());
     }
     
-    
+    @Test
+    public void headerShouldNotBeDisplayedAfterLoggingOut() throws NoSuchElementException{
+        this.login();
+        driver.get(baseUrl);
+        WebElement link = driver.findElement(By.id("logoutForm:linkLogout"));
+        link.click();
+        WebElement header = driver.findElement(By.tagName("header"));
+        assertFalse(header.isDisplayed());
+    }
 }
