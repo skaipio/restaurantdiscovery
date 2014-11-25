@@ -1,5 +1,6 @@
 package fi.kapsi.skaipio.selenium.restaurantdiscovery;
 
+import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -35,6 +36,20 @@ public class ITWhenOnMainPageTest extends IntegrationTestUsingSelenium{
         driver.get(baseUrl);
         WebElement header = driver.findElement(By.tagName("header"));
         assertTrue(header.isDisplayed());
+    }
+    
+    @Test
+    public void restaurantDataRowsShouldNotHaveEditButtonsWhenNotSignedIn() throws NoSuchElementException{
+        driver.get(baseUrl);
+        List<WebElement> editButtons = driver.findElements(By.className("editButton"));
+        assertTrue(editButtons.isEmpty());
+    }
+    
+    @Test
+    public void restaurantDataRowsShouldHaveEditButtonsWhenSignedIn() throws NoSuchElementException{
+        driver.get(baseUrl);
+        List<WebElement> editButtons = driver.findElements(By.className("editButton"));
+        assertEquals(2, editButtons.size());
     }
     
     @Test

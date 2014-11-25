@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ITWhenOnLoginPageTest extends IntegrationTestUsingSelenium{
     
-    
+  
     @Before
     public void open(){
         driver = new FirefoxDriver();
